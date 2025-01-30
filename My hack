@@ -118,38 +118,38 @@ Callback = <function> - The function of the button.
 ]]
 
 Tab:AddButton({
-	Name = "spam",
+	Name = "spam غير شغال",
 	Callback = function()
       		local TextChatService = game:GetService("TextChatService")
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
--- ÃÂ¤Ã‘Æ’ÃÂ½ÃÂºÃ‘â€ ÃÂ¸Ã‘ ÃÂ´ÃÂ»Ã‘ Ã‘ÃÂ¾ÃÂ·ÃÂ´ÃÂ°ÃÂ½ÃÂ¸Ã‘ GUI
-local function createGui(player)
+-- ÃÂ¤Ã‘Æ’ÃÂ½ÃÂºÃ‘â€ ÃÂ¸Ã‘ ÃÂ´ÃÂ»Ã‘ Ã‘ÃÂ¾ÃÂ·ÃÂ´ÃÂ°ÃÂ½ÃÂ¸Ã‘ I
+local func(player)
     local ScreenGui = Instance.new("ScreenGui")
     local Frame = Instance.new("Frame")
-    local MessageBox = Instance.new("TextBox")
+    local MessageBox = Instw("TextBox")
     local CountBox = Instance.new("TextBox")
     local SendButton = Instance.new("TextButton")
     local ToggleButton = Instance.new("TextButton")
     local CloseButton = Instance.new("TextButton")
     local SettingsButton = Instance.new("TextButton")
-    local SettingsFrame = Instance.new("Frame")
+    local SettingsFrame = Iance.new("Frame")
     local LanguageButton = Instance.new("TextButton")
     local CensorshipToggle = Instance.new("TextButton")
     
-    ScreenGui.Parent = player:WaitForChild("PlayerGui")
+    ScreenGui.Parent = playetForChild("PlayerGui")
 
     -- ÃÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂ¹ÃÂºÃÂ° Frame
-    Frame.Size = UDim2.new(0, 300, 0, 250)
-    Frame.Position = UDim2.new(0.5, -150, 0.5, -125)
+    Frame.Size = UD2.new(0, 300, 0, 250)
+    Frame.Position = Um2.new(0.5, -150, 0.5, -125)
     Frame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
     Frame.BorderSizePixel = 0
     Frame.Active = true
-    Frame.Draggable = true
-    Frame.Parent = ScreenGui
+    Frame.Draable = true
+    Fre.Pant = ScrGui
 
-    -- ÃÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂ¹ÃÂºÃÂ° MessageBox
+    -- ÃÃÂ°Ã‘Ã‘â€šÃ‘â‚ÃÂ¾ÃÂ¹ÃÂºÃÂ° MessageBox
     MessageBox.Size = UDim2.new(0, 280, 0, 50)
     MessageBox.Position = UDim2.new(0, 10, 0, 10)
     MessageBox.PlaceholderText = "Ãâ€™ÃÂ²ÃÂµÃÂ´ÃÂ¸Ã‘â€šÃÂµ Ã‘ÃÂ¾ÃÂ¾ÃÂ±Ã‘â€°ÃÂµÃÂ½ÃÂ¸ÃÂµ"
@@ -333,6 +333,18 @@ Tab:AddButton({
 	Name = "animation",
 	Callback = function()
       		loadstring(game:HttpGet("https://pastebin.com/raw/Uq8vajaM"))()
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "spam شغال",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/G3BOSH/Spam/refs/heads/main/Spam"))();
   	end    
 })
 
