@@ -1,0 +1,354 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "X9_AMIGO", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+--[[
+Name = <string> - The name of the UI.
+HidePremium = <bool> - Whether or not the user details shows Premium status or not.
+SaveConfig = <bool> - Toggles the config saving in the UI.
+ConfigFolder = <string> - The name of the folder where the configs are saved.
+IntroEnabled = <bool> - Whether or not to show the intro animation.
+IntroText = <string> - Text to show in the intro animation.
+IntroIcon = <string> - URL to the image you want to use in the intro animation.
+Icon = <string> - URL to the image you want displayed on the window.
+CloseCallback = <function> - Function to execute when the window is closed.
+]]
+
+local Tab = Window:MakeTab({
+	Name = "scripts",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+local Section = Tab:AddSection({
+	Name = "X9SCRIPS"
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
+
+OrionLib:MakeNotification({
+	Name = "hello X9SCRIPS",
+	Content = "Notification content... what will it say??",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+--[[
+Title = <string> - The title of the notification.
+Content = <string> - The content of the notification.
+Image = <string> - The icon of the notification.
+Time = <number> - The duration of the notfication.
+]]
+
+Tab:AddButton({
+	Name = "alrahma script",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/n0kc/AtomicHub/main/Map-Al-Biout.lua"))()
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "bluddy burns",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/BloodyBurns/Hex/main/Iv%20Admin%20v3.lua'))()
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "nameless admin",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source"))();
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "prizz life script",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/elliexmln/PrizzLife/main/pladmin.lua'))()
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "TP tool",
+	Callback = function()
+      		mouse = game.Players.LocalPlayer:GetMouse()
+tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = "teleport"
+tool.Activated:connect(function()
+local pos = mouse.Hit+Vector3.new(0,2.5,0)
+pos = CFrame.new(pos.X,pos.Y,pos.Z)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+end)
+tool.Parent = game.Players.LocalPlayer.Backpack
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "spam",
+	Callback = function()
+      		local TextChatService = game:GetService("TextChatService")
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+-- ÃÂ¤Ã‘Æ’ÃÂ½ÃÂºÃ‘â€ ÃÂ¸Ã‘ ÃÂ´ÃÂ»Ã‘ Ã‘ÃÂ¾ÃÂ·ÃÂ´ÃÂ°ÃÂ½ÃÂ¸Ã‘ GUI
+local function createGui(player)
+    local ScreenGui = Instance.new("ScreenGui")
+    local Frame = Instance.new("Frame")
+    local MessageBox = Instance.new("TextBox")
+    local CountBox = Instance.new("TextBox")
+    local SendButton = Instance.new("TextButton")
+    local ToggleButton = Instance.new("TextButton")
+    local CloseButton = Instance.new("TextButton")
+    local SettingsButton = Instance.new("TextButton")
+    local SettingsFrame = Instance.new("Frame")
+    local LanguageButton = Instance.new("TextButton")
+    local CensorshipToggle = Instance.new("TextButton")
+    
+    ScreenGui.Parent = player:WaitForChild("PlayerGui")
+
+    -- ÃÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂ¹ÃÂºÃÂ° Frame
+    Frame.Size = UDim2.new(0, 300, 0, 250)
+    Frame.Position = UDim2.new(0.5, -150, 0.5, -125)
+    Frame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+    Frame.BorderSizePixel = 0
+    Frame.Active = true
+    Frame.Draggable = true
+    Frame.Parent = ScreenGui
+
+    -- ÃÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂ¹ÃÂºÃÂ° MessageBox
+    MessageBox.Size = UDim2.new(0, 280, 0, 50)
+    MessageBox.Position = UDim2.new(0, 10, 0, 10)
+    MessageBox.PlaceholderText = "Ãâ€™ÃÂ²ÃÂµÃÂ´ÃÂ¸Ã‘â€šÃÂµ Ã‘ÃÂ¾ÃÂ¾ÃÂ±Ã‘â€°ÃÂµÃÂ½ÃÂ¸ÃÂµ"
+    MessageBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    MessageBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+    MessageBox.BorderSizePixel = 0
+    MessageBox.Parent = Frame
+
+    -- ÃÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂ¹ÃÂºÃÂ° CountBox
+    CountBox.Size = UDim2.new(0, 280, 0, 50)
+    CountBox.Position = UDim2.new(0, 10, 0, 70)
+    CountBox.PlaceholderText = "Ãâ€™ÃÂ²ÃÂµÃÂ´ÃÂ¸Ã‘â€šÃÂµ ÃÂºÃÂ¾ÃÂ»ÃÂ¸Ã‘â€¡ÃÂµÃ‘Ã‘â€šÃÂ²ÃÂ¾"
+    CountBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    CountBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+    CountBox.BorderSizePixel = 0
+    CountBox.Parent = Frame
+
+    -- ÃÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂ¹ÃÂºÃÂ° SendButton
+    SendButton.Size = UDim2.new(0, 280, 0, 50)
+    SendButton.Position = UDim2.new(0, 10, 0, 130)
+    SendButton.Text = "ÃÅ¾Ã‘â€šÃÂ¿Ã‘â‚¬ÃÂ°ÃÂ²ÃÂ¸Ã‘â€šÃ‘Å’" -- ÃÅ¸ÃÂµÃ‘â‚¬ÃÂµÃÂ²ÃÂ¾ÃÂ´ ÃÂºÃÂ½ÃÂ¾ÃÂ¿ÃÂºÃÂ¸
+    SendButton.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+    SendButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    SendButton.BorderSizePixel = 0
+    SendButton.Parent = Frame
+
+    -- ÃÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂ¹ÃÂºÃÂ° ToggleButton
+    ToggleButton.Size = UDim2.new(0, 100, 0, 50)
+    ToggleButton.Position = UDim2.new(0, 10, 0, 10)
+    ToggleButton.Text = "ÃÂ¡ÃÂ²ÃÂµÃ‘â‚¬ÃÂ½Ã‘Æ’Ã‘â€šÃ‘Å’/Ã ÃÂ°ÃÂ·ÃÂ²ÃÂµÃ‘â‚¬ÃÂ½Ã‘Æ’Ã‘â€šÃ‘Å’"
+    ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+    ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    ToggleButton.BorderSizePixel = 0
+    ToggleButton.Parent = ScreenGui
+
+    -- ÃÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂ¹ÃÂºÃÂ° CloseButton
+    CloseButton.Size = UDim2.new(0, 50, 0, 50)
+    CloseButton.Position = UDim2.new(1, -60, 0, 10)
+    CloseButton.Text = "X"
+    CloseButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    CloseButton.BorderSizePixel = 0
+    CloseButton.Parent = Frame
+
+    -- ÃÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂ¹ÃÂºÃÂ° SettingsButton
+    SettingsButton.Size = UDim2.new(0, 280, 0, 50)
+    SettingsButton.Position = UDim2.new(0, 10, 0, 190)
+    SettingsButton.Text = "ÃÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂ¹ÃÂºÃÂ¸"
+    SettingsButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+    SettingsButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    SettingsButton.BorderSizePixel = 0
+    SettingsButton.Parent = Frame
+
+    -- ÃÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂ¹ÃÂºÃÂ° SettingsFrame
+    SettingsFrame.Size = UDim2.new(0, 300, 0, 150)
+    SettingsFrame.Position = UDim2.new(0.5, -150, 0.5, -75)
+    SettingsFrame.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+    SettingsFrame.Visible = false
+    SettingsFrame.Parent = ScreenGui
+
+    -- ÃÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂ¹ÃÂºÃÂ° LanguageButton
+    LanguageButton.Size = UDim2.new(0, 280, 0, 50)
+    LanguageButton.Position = UDim2.new(0, 10, 0, 10)
+    LanguageButton.Text = "ÃËœÃÂ·ÃÂ¼ÃÂµÃÂ½ÃÂ¸Ã‘â€šÃ‘Å’ Ã‘ÃÂ·Ã‘â€¹ÃÂº"
+    LanguageButton.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+    LanguageButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    LanguageButton.BorderSizePixel = 0
+    LanguageButton.Parent = SettingsFrame
+
+    -- ÃÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂ¹ÃÂºÃÂ° CensorshipToggle
+    CensorshipToggle.Size = UDim2.new(0, 280, 0, 50)
+    CensorshipToggle.Position = UDim2.new(0, 10, 0, 70)
+    CensorshipToggle.Text = "ÃÂ¦ÃÂµÃÂ½ÃÂ·Ã‘Æ’Ã‘â‚¬ÃÂ° ÃÂ²ÃÂºÃÂ»Ã‘Å½Ã‘â€¡ÃÂµÃÂ½ÃÂ°"
+    CensorshipToggle.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+    CensorshipToggle.TextColor3 = Color3.fromRGB(255, 255, 255)
+    CensorshipToggle.BorderSizePixel = 0
+    CensorshipToggle.Parent = SettingsFrame
+
+    -- ÃÂ¤ÃÂ»ÃÂ°ÃÂ³ ÃÂ´ÃÂ»Ã‘ ÃÂ¾Ã‘â€šÃ‘ÃÂ»ÃÂµÃÂ¶ÃÂ¸ÃÂ²ÃÂ°ÃÂ½ÃÂ¸Ã‘ Ã‘ÃÂ¾Ã‘Ã‘â€šÃÂ¾Ã‘ÃÂ½ÃÂ¸Ã‘ GUI
+    local guiClosed = false
+    local censorshipEnabled = true -- ÃÅ¸ÃÂ¾ Ã‘Æ’ÃÂ¼ÃÂ¾ÃÂ»Ã‘â€¡ÃÂ°ÃÂ½ÃÂ¸Ã‘Å½ ÃÂ²ÃÂºÃÂ»Ã‘Å½Ã‘â€¡ÃÂµÃÂ½ÃÂ° Ã‘â€ ÃÂµÃÂ½ÃÂ·Ã‘Æ’Ã‘â‚¬ÃÂ°
+    local currentLanguage = "ru" -- ÃÅ¸ÃÂ¾ Ã‘Æ’ÃÂ¼ÃÂ¾ÃÂ»Ã‘â€¡ÃÂ°ÃÂ½ÃÂ¸Ã‘Å½ Ã‘â‚¬Ã‘Æ’Ã‘Ã‘ÃÂºÃÂ¸ÃÂ¹
+
+    -- ÃÂ¤Ã‘Æ’ÃÂ½ÃÂºÃ‘â€ ÃÂ¸Ã‘ ÃÂ¾Ã‘â€šÃÂ¿Ã‘â‚¬ÃÂ°ÃÂ²ÃÂºÃÂ¸ Ã‘ÃÂ¾ÃÂ¾ÃÂ±Ã‘â€°ÃÂµÃÂ½ÃÂ¸ÃÂ¹
+    local function sendMessages()
+        local message = MessageBox.Text .. (censorshipEnabled and "" or " le le le le")
+        local count = tonumber(CountBox.Text)
+
+        if message ~= "" and count then
+            for i = 1, count do
+                local chatChannel = TextChatService:WaitForChild("TextChannels"):WaitForChild("RBXGeneral")
+                chatChannel:SendAsync(message)
+                wait(1) -- Ãâ€”ÃÂ°ÃÂ´ÃÂµÃ‘â‚¬ÃÂ¶ÃÂºÃÂ° ÃÂ² 1 Ã‘ÃÂµÃÂºÃ‘Æ’ÃÂ½ÃÂ´Ã‘Æ’ ÃÂ¼ÃÂµÃÂ¶ÃÂ´Ã‘Æ’ Ã‘ÃÂ¾ÃÂ¾ÃÂ±Ã‘â€°ÃÂµÃÂ½ÃÂ¸Ã‘ÃÂ¼ÃÂ¸
+            end
+        else
+            warn("ÃÅ¸ÃÂ¾ÃÂ¶ÃÂ°ÃÂ»Ã‘Æ’ÃÂ¹Ã‘Ã‘â€šÃÂ°, ÃÂ²ÃÂ²ÃÂµÃÂ´ÃÂ¸Ã‘â€šÃÂµ ÃÂºÃÂ¾Ã‘â‚¬Ã‘â‚¬ÃÂµÃÂºÃ‘â€šÃÂ½ÃÂ¾ÃÂµ Ã‘ÃÂ¾ÃÂ¾ÃÂ±Ã‘â€°ÃÂµÃÂ½ÃÂ¸ÃÂµ ÃÂ¸ ÃÂºÃÂ¾ÃÂ»ÃÂ¸Ã‘â€¡ÃÂµÃ‘Ã‘â€šÃÂ²ÃÂ¾.")
+        end
+    end
+
+    SendButton.MouseButton1Click:Connect(sendMessages)
+
+    -- ÃÂ¤Ã‘Æ’ÃÂ½ÃÂºÃ‘â€ ÃÂ¸Ã‘ ÃÂ´ÃÂ»Ã‘ Ã‘ÃÂ²ÃÂ¾Ã‘â‚¬ÃÂ°Ã‘â€¡ÃÂ¸ÃÂ²ÃÂ°ÃÂ½ÃÂ¸Ã‘ ÃÂ¸ Ã‘â‚¬ÃÂ°ÃÂ·ÃÂ²ÃÂ¾Ã‘â‚¬ÃÂ°Ã‘â€¡ÃÂ¸ÃÂ²ÃÂ°ÃÂ½ÃÂ¸Ã‘ GUI
+    local isFrameVisible = true
+    ToggleButton.MouseButton1Click:Connect(function()
+        isFrameVisible = not isFrameVisible
+        Frame.Visible = isFrameVisible
+        ToggleButton.Text = isFrameVisible and "ÃÂ¡ÃÂ²ÃÂµÃ‘â‚¬ÃÂ½Ã‘Æ’Ã‘â€šÃ‘Å’" or "Ã ÃÂ°ÃÂ·ÃÂ²ÃÂµÃ‘â‚¬ÃÂ½Ã‘Æ’Ã‘â€šÃ‘Å’"
+    end)
+
+    -- ÃÂ¤Ã‘Æ’ÃÂ½ÃÂºÃ‘â€ ÃÂ¸Ã‘ ÃÂ´ÃÂ»Ã‘ ÃÂ¾Ã‘â€šÃÂºÃ‘â‚¬Ã‘â€¹Ã‘â€šÃÂ¸Ã‘ ÃÂ½ÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂµÃÂº
+    SettingsButton.MouseButton1Click:Connect(function()
+        SettingsFrame.Visible = true
+    end)
+
+    -- ÃÂ¤Ã‘Æ’ÃÂ½ÃÂºÃ‘â€ ÃÂ¸Ã‘ ÃÂ´ÃÂ»Ã‘ ÃÂ·ÃÂ°ÃÂºÃ‘â‚¬Ã‘â€¹Ã‘â€šÃÂ¸Ã‘ GUI
+    CloseButton.MouseButton1Click:Connect(function()
+        guiClosed = true
+        ScreenGui:Destroy()
+    end)
+
+    -- Ãâ€ÃÂ¾ÃÂ±ÃÂ°ÃÂ²ÃÂ»ÃÂµÃÂ½ÃÂ¸ÃÂµ ÃÂºÃÂ½ÃÂ¾ÃÂ¿ÃÂºÃÂ¸ ÃÂ·ÃÂ°ÃÂºÃ‘â‚¬Ã‘â€¹Ã‘â€šÃÂ¸Ã‘ ÃÂ½ÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂµÃÂº
+    local SettingsCloseButton = Instance.new("TextButton")
+    SettingsCloseButton.Size = UDim2.new(0, 50, 0, 50)
+    SettingsCloseButton.Position = UDim2.new(1, -60, 0, 10)
+    SettingsCloseButton.Text = "X"
+    SettingsCloseButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    SettingsCloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    SettingsCloseButton.BorderSizePixel = 0
+    SettingsCloseButton.Parent = SettingsFrame
+    SettingsCloseButton.MouseButton1Click:Connect(function()
+        SettingsFrame.Visible = false
+    end)
+
+    -- ÃÂ¤Ã‘Æ’ÃÂ½ÃÂºÃ‘â€ ÃÂ¸Ã‘ ÃÂ´ÃÂ»Ã‘ ÃÂ¿ÃÂµÃ‘â‚¬ÃÂµÃÂºÃÂ»Ã‘Å½Ã‘â€¡ÃÂµÃÂ½ÃÂ¸Ã‘ Ã‘â€ ÃÂµÃÂ½ÃÂ·Ã‘Æ’Ã‘â‚¬Ã‘â€¹
+    CensorshipToggle.MouseButton1Click:Connect(function()
+        censorshipEnabled = not censorshipEnabled
+        CensorshipToggle.Text = censorshipEnabled and "ÃÂ¦ÃÂµÃÂ½ÃÂ·Ã‘Æ’Ã‘â‚¬ÃÂ° ÃÂ²ÃÂºÃÂ»Ã‘Å½Ã‘â€¡ÃÂµÃÂ½ÃÂ°" or "ÃÂ¦ÃÂµÃÂ½ÃÂ·Ã‘Æ’Ã‘â‚¬ÃÂ° ÃÂ¾Ã‘â€šÃÂºÃÂ»Ã‘Å½Ã‘â€¡ÃÂµÃÂ½ÃÂ°"
+    end)
+
+    -- ÃÂ¤Ã‘Æ’ÃÂ½ÃÂºÃ‘â€ ÃÂ¸Ã‘ ÃÂ´ÃÂ»Ã‘ Ã‘ÃÂ¼ÃÂµÃÂ½Ã‘â€¹ Ã‘ÃÂ·Ã‘â€¹ÃÂºÃÂ°
+    LanguageButton.MouseButton1Click:Connect(function()
+        currentLanguage = (currentLanguage == "ru") and "en" or "ru"
+        MessageBox.PlaceholderText = (currentLanguage == "ru") and "Ãâ€™ÃÂ²ÃÂµÃÂ´ÃÂ¸Ã‘â€šÃÂµ Ã‘ÃÂ¾ÃÂ¾ÃÂ±Ã‘â€°ÃÂµÃÂ½ÃÂ¸ÃÂµ" or "Enter message"
+        CountBox.PlaceholderText = (currentLanguage == "ru") and "Ãâ€™ÃÂ²ÃÂµÃÂ´ÃÂ¸Ã‘â€šÃÂµ ÃÂºÃÂ¾ÃÂ»ÃÂ¸Ã‘â€¡ÃÂµÃ‘Ã‘â€šÃÂ²ÃÂ¾" or "Enter count"SendButton.Text = (currentLanguage == "ru") and "ÃÅ¾Ã‘â€šÃÂ¿Ã‘â‚¬ÃÂ°ÃÂ²ÃÂ¸Ã‘â€šÃ‘Å’" or "Send"
+        ToggleButton.Text = (currentLanguage == "ru") and "ÃÂ¡ÃÂ²ÃÂµÃ‘â‚¬ÃÂ½Ã‘Æ’Ã‘â€šÃ‘Å’/Ã ÃÂ°ÃÂ·ÃÂ²ÃÂµÃ‘â‚¬ÃÂ½Ã‘Æ’Ã‘â€šÃ‘Å’" or "Collapse/Expand"
+        SettingsButton.Text = (currentLanguage == "ru") and "ÃÃÂ°Ã‘Ã‘â€šÃ‘â‚¬ÃÂ¾ÃÂ¹ÃÂºÃÂ¸" or "Settings"
+        LanguageButton.Text = (currentLanguage == "ru") and "ÃËœÃÂ·ÃÂ¼ÃÂµÃÂ½ÃÂ¸Ã‘â€šÃ‘Å’ Ã‘ÃÂ·Ã‘â€¹ÃÂº" or "Change Language"
+        CensorshipToggle.Text = censorshipEnabled and 
+            ((currentLanguage == "ru") and "ÃÂ¦ÃÂµÃÂ½ÃÂ·Ã‘Æ’Ã‘â‚¬ÃÂ° ÃÂ²ÃÂºÃÂ»Ã‘Å½Ã‘â€¡ÃÂµÃÂ½ÃÂ°" or "Censorship Enabled") or 
+            ((currentLanguage == "ru") and "ÃÂ¦ÃÂµÃÂ½ÃÂ·Ã‘Æ’Ã‘â‚¬ÃÂ° ÃÂ¾Ã‘â€šÃÂºÃÂ»Ã‘Å½Ã‘â€¡ÃÂµÃÂ½ÃÂ°" or "Censorship Disabled")
+    end)
+
+    print("ÃÂ¡ÃÂ¾ÃÂ·ÃÂ´ÃÂ°ÃÂ½ GUI ÃÂ´ÃÂ»Ã‘ ÃÂ¸ÃÂ³Ã‘â‚¬ÃÂ¾ÃÂºÃÂ°: " .. player.Name)
+end
+
+-- ÃÂ¡ÃÂ¾ÃÂ·ÃÂ´ÃÂ°ÃÂ½ÃÂ¸ÃÂµ GUI ÃÂ´ÃÂ»Ã‘ ÃÂºÃÂ°ÃÂ¶ÃÂ´ÃÂ¾ÃÂ³ÃÂ¾ ÃÂ¸ÃÂ³Ã‘â‚¬ÃÂ¾ÃÂºÃÂ°
+Players.PlayerAdded:Connect(function(player)
+    createGui(player)
+end)
+
+-- ÃÂ¡ÃÂ¾ÃÂ·ÃÂ´ÃÂ°ÃÂ½ÃÂ¸ÃÂµ GUI ÃÂ´ÃÂ»Ã‘ Ã‘Æ’ÃÂ¶ÃÂµ Ã‘Ã‘Æ’Ã‘â€°ÃÂµÃ‘Ã‘â€šÃÂ²Ã‘Æ’Ã‘Å½Ã‘â€°ÃÂ¸Ã‘â€¦ ÃÂ¸ÃÂ³Ã‘â‚¬ÃÂ¾ÃÂºÃÂ¾ÃÂ²
+for _, player in ipairs(Players:GetPlayers()) do
+    createGui(player)
+end
+
+-- ÃÅ¾ÃÂ±ÃÂµÃ‘ÃÂ¿ÃÂµÃ‘â€¡ÃÂµÃÂ½ÃÂ¸ÃÂµ ÃÂ½ÃÂµÃÂ¿Ã‘â‚¬ÃÂµÃ‘â‚¬Ã‘â€¹ÃÂ²ÃÂ½ÃÂ¾ÃÂ¹ Ã‘â‚¬ÃÂ°ÃÂ±ÃÂ¾Ã‘â€šÃ‘â€¹ Ã‘ÃÂºÃ‘â‚¬ÃÂ¸ÃÂ¿Ã‘â€šÃÂ°
+RunService.RenderStepped:Connect(function()
+    -- Ãâ€”ÃÂ´ÃÂµÃ‘Ã‘Å’ ÃÂ¼ÃÂ¾ÃÂ¶ÃÂ½ÃÂ¾ ÃÂ´ÃÂ¾ÃÂ±ÃÂ°ÃÂ²ÃÂ¸Ã‘â€šÃ‘Å’ ÃÂ»Ã‘Å½ÃÂ±ÃÂ¾ÃÂ¹ ÃÂºÃÂ¾ÃÂ´, ÃÂºÃÂ¾Ã‘â€šÃÂ¾Ã‘â‚¬Ã‘â€¹ÃÂ¹ ÃÂ´ÃÂ¾ÃÂ»ÃÂ¶ÃÂµÃÂ½ ÃÂ²Ã‘â€¹ÃÂ¿ÃÂ¾ÃÂ»ÃÂ½Ã‘Ã‘â€šÃ‘Å’Ã‘Ã‘ ÃÂ¿ÃÂ¾Ã‘Ã‘â€šÃÂ¾Ã‘ÃÂ½ÃÂ½ÃÂ¾
+end)
+
+print("ÃÂ¡ÃÂºÃ‘â‚¬ÃÂ¸ÃÂ¿Ã‘â€š ÃÂ·ÃÂ°ÃÂ³Ã‘â‚¬Ã‘Æ’ÃÂ¶ÃÂµÃÂ½ ÃÂ¸ Ã‘â‚¬ÃÂ°ÃÂ±ÃÂ¾Ã‘â€šÃÂ°ÃÂµÃ‘â€š.")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "animation",
+	Callback = function()
+      		loadstring(game:HttpGet("https://pastebin.com/raw/Uq8vajaM"))()
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+local Tab = Window:MakeTab({
+	Name = "brook heaven",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
