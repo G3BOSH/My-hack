@@ -807,15 +807,14 @@ PlayerTab:AddSlider({
  end    
 })
 
-PlayerTab:AddSlider({
- Name = "Jump Height",
- Min = 16,
- Max = 500,
- Default = 5,
- Color = Color3.fromRGB(255,255,255),
- Increment = 1,
- ValueName = "Height",
- Callback = function(Value)
-  game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
- end    
+-- Adding a slider for test
+Tab:AddSlider({
+    Name = "Walk Speed",
+    Min = 0,                                              -- Minimum value for the slider
+    Max = 500,                                            -- Maximum value for the slider
+    Default = 36,                                         -- Default value of the slider
+    Color = Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)),
+    Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value  -- Updates the player's walk speed
+    end
 })
